@@ -111,9 +111,11 @@ class EditPostPage extends HookConsumerWidget {
                     showIndicator(context);
                     await ref.read(deletePostProvider)(post);
                     dismissIndicator(context);
-                    context.showSnackBar('削除しました');
-
-                    TimelinePage.go(context);
+                    context
+                      ..showSnackBar('削除しました')
+                      // TODO(shohei): 修正予定
+                      ..pop()
+                      ..pop();
                   } on Exception catch (e) {
                     dismissIndicator(context);
                     unawaited(
@@ -207,10 +209,6 @@ class EditPostPage extends HookConsumerWidget {
                       oldPost: args.oldPost,
                       text: text,
                     );
-
-                    /// 更新した投稿内容を反映する
-                    final fetchPostArgs = args.fetchPostArgs;
-                    ref.invalidate(fetchPostAsyncProviders(fetchPostArgs));
                   }
                 } else {
                   /// 投稿内容を作成する

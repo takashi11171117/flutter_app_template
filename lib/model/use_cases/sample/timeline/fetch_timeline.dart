@@ -19,7 +19,9 @@ class FetchTimeline extends AutoDisposeAsyncNotifier<List<Post>> {
 
   @override
   FutureOr<List<Post>> build() async {
-    /// クエリを設定したRepositoryを設定
+    final length = state.asData?.value.length ?? 0;
+
+    /// クエリを設定したRepositoryを生成
     final repository = ref.read(
       postCollectionPagingProvider(
         CollectionParam<Post>(
@@ -29,7 +31,8 @@ class FetchTimeline extends AutoDisposeAsyncNotifier<List<Post>> {
 
           /// invalidate後は、FetchTimelineが保持していた状態（state）はキャッシュされている。
           /// そのためinvalidate前に保持されていた個数分取得するようlimitを設定する。
-          initialLimit: state.asData?.value.length ?? defaultLimit,
+          /// length に対して + 1 にしているのは、新しいデータが作成された際に個数が1つ増えることを考慮したため
+          initialLimit: length > defaultLimit ? length + 1 : defaultLimit,
           pagingLimit: defaultLimit,
           decode: Post.fromJson,
         ),
