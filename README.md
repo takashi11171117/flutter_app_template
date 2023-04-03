@@ -178,12 +178,12 @@ Android Studio から実行する場合は、以下のように Run Configuratio
           - [profile](./android/app/src/profile/AndroidManifest.xml#L2)
 
         - MainActivity.kt
-          - [package](./android/app/src/main/kotlin/com/example/app/MainActivity.kt#L1)
+          - [package](android/app/src/main/kotlin/site/fools/fluttertemplate/MainActivity.kt#L1)
 
         - ScreenReaderPlugin.kt
-          - [package1](./android/app/src/main/kotlin/com/example/app/ScreenReaderPlugin.kt#L1)
-          - [package2](./android/app/src/main/kotlin/com/example/app/ScreenReaderPlugin.kt#L15)
-          - [package3](./android/app/src/main/kotlin/com/example/app/ScreenReaderPlugin.kt#L25)
+          - [package1](android/app/src/main/kotlin/site/fools/fluttertemplate/ScreenReaderPlugin.kt#L1)
+          - [package2](android/app/src/main/kotlin/site/fools/fluttertemplate/ScreenReaderPlugin.kt#L15)
+          - [package3](android/app/src/main/kotlin/site/fools/fluttertemplate/ScreenReaderPlugin.kt#L25)
 
         - kotlin 配下のディレクトリ名を変更する
 

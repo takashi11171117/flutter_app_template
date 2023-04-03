@@ -5,7 +5,7 @@ import '../../../utils/logger.dart';
 
 final screenReaderRepositoryProvider = Provider<ScreenReaderRepository>((_) {
   // TODO(shohei): prefixNameを変更した場合はiOSとAndroidのネイティブ側の変更も必要
-  const prefixName = 'com.example.app';
+  const prefixName = 'site.fools.fluttertemplate';
   return ScreenReaderRepository(
     const MethodChannel('$prefixName/method/screenReader'),
     const EventChannel('$prefixName/event/screenReader/fetchEnable'),
